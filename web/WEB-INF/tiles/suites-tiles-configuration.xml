@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    
+    <definition name="base.definition" template="/tiles/template.jsp" >
+        <put-attribute name="metadata" value="" />
+        <put-attribute name="header" value="/tiles/plantilla/header.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="menu" value="/tiles/plantilla/menu.jsp" />
+        <put-list-attribute name="librerias">
+        </put-list-attribute>
+    </definition>
+        
+    <definition name="login" template="/tiles/loginTemplate.jsp">
+        <put-attribute name="metadata" value="" />
+        <put-attribute name="header" value="/tiles/plantilla/headerLogin.jsp" />
+        <put-attribute name="menu" value="/tiles/plantilla/menuLogin.jsp" />
+        <put-attribute name="body" value="/jsp/login.jsp" />
+        <put-list-attribute name="librerias">            
+            <add-attribute value="/js/jquery/md5/sha1.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/js/jquery/validator/jquery.validate.js"/>
+            <add-attribute value="/dwr/interface/dwrLogin.js"/>
+            <add-attribute value="/js/login.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="loginSel" template="/tiles/loginTemplate.jsp">
+        <put-attribute name="metadata" value="" />
+        <put-attribute name="header" value="/tiles/plantilla/headerLogin.jsp" />
+        <put-attribute name="menu" value="/tiles/plantilla/menuLogin.jsp" />
+        <put-attribute name="body" value="/jsp/loginSeleccion.jsp" />
+        <put-list-attribute name="librerias">            
+            <add-attribute value="/js/jquery/md5/sha1.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/js/jquery/validator/jquery.validate.js"/>
+            <add-attribute value="/dwr/interface/dwrLogin.js"/>
+            <add-attribute value="/js/login.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="suites" extends="base.definition">
+        <put-attribute name="body" value="/jsp/suites.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrSuite.js"/>
+            <add-attribute value="/js/suites.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="eventosAdmin" extends="base.definition">
+        <put-attribute name="body" value="/jsp/EventosAdmin.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrEvento.js"/>
+            <add-attribute value="/js/eventosAdmin.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    <definition name="AyudaBoletos" extends="base.definition">
+        <put-attribute name="body" value="/jsp/AyudaBoletos.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="detalleEventoAdmin" extends="base.definition">
+        <put-attribute name="body" value="/jsp/detalleEventoAdmin.jsp" />
+        <put-list-attribute name="librerias">
+            
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="eventos" extends="base.definition">
+        <put-attribute name="body" value="/jsp/eventos.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrEvento.js"/>
+            <add-attribute value="/js/eventos.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="detalleEvento" extends="base.definition">
+        <put-attribute name="body" value="/jsp/detalleEvento.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/js/jquery/validator/jquery.validate.js"/>
+            <add-attribute value="/js/jquery/autocomplete/typeahead.min.js"/>
+            <add-attribute value="/js/jquery/autocomplete/bloodhund.js"/>
+            <add-attribute value="/dwr/interface/dwrEvento.js"/>
+            <add-attribute value="/js/detalleEvento.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+            <add-attribute value="/css/typeahead.css"/>
+        </put-list-attribute>
+    </definition>
+    
+    
+    
+    <definition name="detalleSuite" extends="base.definition">
+        <put-attribute name="body" value="/jsp/detalleSuite.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrSuite.js"/>
+            <add-attribute value="/js/jquery/validator/jquery.validate.js"/>
+            <add-attribute value="/js/detalleSuite.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+            <add-attribute value="/css/detalleSuite.css"/>
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="usuarios" extends="base.definition">
+        <put-attribute name="body" value="/jsp/usuarios.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrUsuario.js"/>
+            <add-attribute value="/js/usuario.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="invitacion" extends="base.definition">
+        <put-attribute name="header" value="/tiles/plantilla/headerInvitacion.jsp" />
+        <put-attribute name="menu" value="/tiles/plantilla/menuLogin.jsp" />
+        <put-attribute name="body" value="/jsp/invitacion.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/dwr/interface/dwrEvento.js"/>
+            <add-attribute value="/js/invitacion.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="detalleUsuarios" extends="base.definition">
+        <put-attribute name="body" value="/jsp/detalleUsuario.jsp" />
+        <put-list-attribute name="librerias">
+            <add-attribute value="/js/bootstrap-toolkit.min.js"/>
+            <add-attribute value="/js/jquery/md5/sha1.js"/>
+            <add-attribute value="/js/jquery/md5/Aes.js"/>
+            <add-attribute value="/js/jquery/validator/jquery.validate.js"/>
+            <add-attribute value="/dwr/interface/dwrUsuario.js"/>
+            <add-attribute value="/js/detalleUsuario.js"/>
+            <add-attribute value="/js/chosen.jquery.min.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+            <add-attribute value="/css/chosen.min.css"/>
+        </put-list-attribute>
+    </definition>
+    
+    <definition name="logout" extends="base.definition">
+        <put-attribute name="menu" value="/tiles/plantilla/menuLogin.jsp" />
+        <put-attribute name="body" value="/jsp/logout.jsp" />
+        <put-list-attribute name="librerias">   
+            <add-attribute value="/dwr/interface/dwrLogin.js"/>
+            <add-attribute value="/js/logout.js"/>
+        </put-list-attribute>
+        <put-list-attribute name="estilos">
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>
+

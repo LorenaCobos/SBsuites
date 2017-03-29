@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+    
+    <rule>
+        <from>^/suites$</from>
+        <to>/s/suites.do</to>
+    </rule>
+    
+    <rule>
+        <from>^/suite$</from>
+        <to>/s/detalleSuite.do</to>
+    </rule>
+    
+    
+    <rule>
+        <from>^/eventos$</from>
+        <to>/s/administracion.do</to>
+    </rule>
+    <rule>
+        <from>^/invitados$</from>
+        <to>/invitados.do</to>
+    </rule>
+    
+    
+    <rule>
+        <from>^/usuarios$</from>
+        <to>/s/usuarios.do</to>
+    </rule>
+   
+    <rule>
+        <from>^/usuario$</from>
+        <to>/s/detalleUsuario.do</to>
+    </rule>
+    <rule>
+        <from>^/AyudaBoletos$</from>
+        <to>/s/AyudaBoletos.do</to>
+    </rule>
+    <!--Index-->
+    <rule>
+        <from>^/([a-z]+)$</from>
+        <to>/login.do?ciudad=$1</to>
+    </rule>
+    
+    <rule>
+        <from>^/loginSel$</from>
+        <to>/loginSel.do</to>
+    </rule>
+<!--    <rule>
+        <from>^/uploadFile$</from>
+        <to>/s/uploadFile.do</to>
+    </rule>-->
+
+</urlrewrite>

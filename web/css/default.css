@@ -1,0 +1,76 @@
+/* 
+    Document   : default
+    Created on : 17-jul-2013, 20:14:32
+    Author     : SBDeveloper
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+table, th
+{
+    font-family: "Arial", Arial, serif;
+}
+
+table.inicio
+{
+    padding: 15px;
+}
+
+td.inicio
+{
+    border: 0px;
+    padding: 15px;
+}
+
+td.moneda
+{
+    border:#D2D2D2 1px solid; 
+    padding:7px; 
+    margin:0px; 
+    text-align:right;
+}
+
+th
+{
+    background-color: #00335e;
+    color:white;
+    padding: 15px;
+}
+
+h1
+{
+    font-family: "Arial", Arial, serif;
+    color: #00549c;
+    word-spacing: 1.5;
+}
+
+p, form
+{
+    font-family: "Arial", Arial, serif;
+}
+
+a
+{
+    font-family: "Arial", Arial, serif;
+    font-size: 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}

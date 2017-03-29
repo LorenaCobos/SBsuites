@@ -1,0 +1,7 @@
+
+
+@media (max-width: 768px) {
+        div.col-sm-4.text-right{
+            text-align: left! important;
+        }
+    }

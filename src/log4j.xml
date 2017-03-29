@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+            <layout class="org.apache.log4j.PatternLayout">
+              <param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n"/>
+            </layout>
+            <filter class="org.apache.log4j.varia.LevelRangeFilter">
+                    <param name="LevelMin" value="DEBUG" />
+                    <param name="LevelMax" value="FATAL" />
+            </filter>
+    </appender>
+    <appender name="debuglog" class="org.apache.log4j.RollingFileAppender">
+      <param name="maxFileSize" value="25000KB" />
+            <param name="maxBackupIndex" value="5" />
+            <param name="File" value="/tmp/mail_debug.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+                    <param name="ConversionPattern"
+                       value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+            </layout>
+            <filter class="org.apache.log4j.varia.LevelRangeFilter">
+                    <param name="LevelMin" value="DEBUG" />
+                    <param name="LevelMax" value="WARN" />
+            </filter>
+    </appender>
+    <appender name="debugloglocal" class="org.apache.log4j.RollingFileAppender">
+      <param name="maxFileSize" value="5000KB" />
+            <param name="maxBackupIndex" value="5" />
+            <param name="File" value="C:/sb/log/mail_debug.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+                    <param name="ConversionPattern"
+                       value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+            </layout>
+            <filter class="org.apache.log4j.varia.LevelRangeFilter">
+                    <param name="LevelMin" value="DEBUG" />
+                    <param name="LevelMax" value="WARN" />
+            </filter>
+    </appender>
+    <appender name="errorloglocal" class="org.apache.log4j.RollingFileAppender">
+            <param name="maxFileSize" value="5000KB" />
+            <param name="maxBackupIndex" value="5" />
+            <param name="File" value="C:/sb/log/mail_error.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+                    <param name="ConversionPattern"
+                       value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+            </layout>
+            <filter class="org.apache.log4j.varia.LevelRangeFilter">
+                    <param name="LevelMin" value="ERROR" />
+                    <param name="LevelMax" value="FATAL" />
+            </filter>
+    </appender>
+    <appender name="errorlog" class="org.apache.log4j.RollingFileAppender">
+            <param name="maxFileSize" value="25000KB" />
+            <param name="maxBackupIndex" value="5" />
+            <param name="File" value="/tmp/mail_error.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+                    <param name="ConversionPattern"
+                       value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+            </layout>
+            <filter class="org.apache.log4j.varia.LevelRangeFilter">
+                    <param name="LevelMin" value="ERROR" />
+                    <param name="LevelMax" value="FATAL" />
+            </filter>
+    </appender>
+    <root>
+      <level value="DEBUG"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="debugloglocal" />
+        <appender-ref ref="errorloglocal" />
+    </root>
+</log4j:configuration>

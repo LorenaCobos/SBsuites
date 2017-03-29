@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/mvc
+                            http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                            http://www.directwebremoting.org/schema/spring-dwr
+                            http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+        default-autowire="byName"
+        xmlns:util="http://www.springframework.org/schema/util">
+
+    <context:property-placeholder location="/WEB-INF/configuration.properties"/>
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" >
+            <value>
+                100000000
+            </value>
+        </property>
+   </bean>
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+    
+    
+    <dwr:configuration>
+        <dwr:convert class="com.sb.suites.entidades.reporte.ReporteEntidad" type="bean" javascript="ReporteEntidad"/>
+        <dwr:convert class="com.sb.suites.entidades.usuarios.OpcionMenuLateralEntidad" type="bean" javascript="opcionMenuLateralEntidad"/>
+        <dwr:convert class="com.sb.suites.entidades.suite.SuiteEntidad" type="bean" javascript="suiteEntidad"/>
+        <dwr:convert class="com.sb.suites.entidades.usuarios.UsuariosEntidad" type="bean" javascript="usuarioEntidad"/>        
+        <dwr:convert class="com.sb.suites.entidades.eventos.DetalleImpresion" type="bean" javascript="detalleImpresion"/>        
+        <dwr:convert class="com.sb.suites.entidades.eventos.ResumenDetalleImpresion" type="bean" javascript="resumenDetalleImpresion"/>        
+        <dwr:convert class="com.sb.suites.entidades.usuarios.CatalogoEntidad" type="bean" javascript="CatalogoEntidad"/>        
+        
+    </dwr:configuration>
+    
+    <!--
+    <dwr:annotation-config />
+    
+        Mapea los archivos util.js y engine.js al dwrController.
+    -->
+    <dwr:url-mapping />
+    <!--Controlador DWR-->
+    <dwr:controller id="dwrController" debug="false" >
+        <dwr:config-param name="crossDomainSessionSecurity" value="false"/>
+    </dwr:controller>
+    
+    <dwr:annotation-scan  base-package="com.sb.suites." scanDataTransferObject="true" scanRemoteProxy="true"/>   
+    <context:component-scan base-package="com.sb.suites."/>
+    <mvc:annotation-driven />
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    </bean>
+    
+    <bean id="viewResolver"
+	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<property name="viewClass">
+            <value>
+                org.springframework.web.servlet.view.tiles2.TilesView
+            </value>
+	</property>
+        <property name="requestContextAttribute" value="rc" />
+    </bean>
+  
+          
+    <bean id="tilesConfigurer"
+        class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles/suites-tiles-configuration.xml</value>                            
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+      p:basenames="com.sb.suites.recursos.etiquetas" />
+
+    <!-- Declare the Interceptor -->
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+              p:paramName="idioma" />
+    </mvc:interceptors>
+    
+    <!-- Declare the Resolver -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="es_MX" />
+    </bean>
+    <!-- FIN i18n y L10n.-->
+    <!---->
+    
+    <!-- <bean id="presentationDao"	class="com.sb.mapaSeccion.dao.mapas.MapaSeccionDAO"/> -->
+
+</beans>
