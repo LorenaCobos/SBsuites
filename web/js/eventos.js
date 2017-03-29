@@ -1,6 +1,5 @@
 function inicioGeneral() {
     eventos.cargaInicial();
-    alert("ejemplo");
 }
 
 var eventos = {
